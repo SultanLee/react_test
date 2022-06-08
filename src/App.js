@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable */
+import React from "react";
+import "antd/dist/antd.css"
+
+import {
+    BrowserRouter,
+    Route,
+    Routes,
+} from "react-router-dom";
+import Mainpage from './components/views/Mainpage'
+import Login from './components/views/Login'
+import Register from './components/views/Register'
+import Main from './components/views/Main'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+          <Routes>
+              <Route exact path="/" element = {<Main/>}/>
+              <Route exact path="/mainpage" element = {<Mainpage/>}/>
+              <Route exact path="/login" element = {<Login/>}/>
+              <Route exact path="/register" element = {<Register/>}/>
+          </Routes>
+      </BrowserRouter>
   );
 }
 
 export default App;
+
